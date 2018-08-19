@@ -11,11 +11,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.datayoo.caiser</groupId>
-    <artifactId>caiser-ceper</artifactId>
+    <artifactId>caiser-cepper</artifactId>
     <version>1.0.1</version>
     <packaging>jar</packaging>
 
-    <name>caiser-cep</name>
+    <name>caiser-cepper</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
