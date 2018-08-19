@@ -1,0 +1,34 @@
+
+<scenes>
+    <scene name="test1" maxInstances="2">
+        <state name="stat1" negative="false" timeout="5">
+            <moql><![CDATA[select d.sip sip, d.dip dip from datas d where d.category='conn']]></moql>
+            <wintype>SW_BATCH_TIME</wintype>
+            <bucketcount>1</bucketcount>
+            <bucketsize>1</bucketsize>
+            <bucketduration>2</bucketduration>
+            <action>setProperty('dip', rs[0].dip)</action>
+        </state>
+        <logicstate name="stat2" operator="AND" negative="false" timeout="10">
+            <state name="stat21" negative="false" timeout="5">
+                <moql><![CDATA[select count(d.sip, true) cnt, joint(d.sip,',') sips, d.dip dip from datas d where d.dip = ctx.dip group by dip having cnt > 5]]></moql>
+                <wintype>SW_BATCH_TIME</wintype>
+                <bucketcount>2</bucketcount>
+                <bucketsize>5</bucketsize>
+                <bucketduration>2</bucketduration>
+                <action>setProperty('sips', rs[0].sips)</action>
+            </state>
+            <state name="stat22" negative="true" timeout="5">
+                <moql><![CDATA[select d.sip sip from datas d where d.category='attack']]></moql>
+                <wintype>SW_BATCH_TIME</wintype>
+                <bucketcount>1</bucketcount>
+                <bucketsize>10</bucketsize>
+                <bucketduration>2</bucketduration>
+            </state>
+            <event>
+                <field name="SIPS">ctx.sips</field>
+                <field name="DIP">ctx.dip</field>
+            </event>
+        </logicstate>
+    </scene>
+</scenes>

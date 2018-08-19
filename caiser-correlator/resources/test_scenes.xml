@@ -1,0 +1,79 @@
+
+<scenes>
+    <scene name="test1" maxInstances="20">
+        <state name="stat1" negative="false" timeout="60">
+            <moql><![CDATA[select evt[0] name, sum(evt[2]) sum from evt evt group by name having sum > 100]]></moql>
+            <wintype>SW_BATCH</wintype>
+            <bucketcount>5</bucketcount>
+            <bucketsize>10</bucketsize>
+            <action>setProperty('SIP', '192.168.2.1')</action>
+            <event>
+                <field name="SIP">'192.168.2.1'</field>
+            </event>
+        </state>
+        <logicstate name="stat2" operator="AND" negative="false" timeout="60">
+            <state name="stat21" negative="false" timeout="60">
+                <moql><![CDATA[select evt[0] name, sum(evt[2]) sum from evt evt group by name having sum > 100]]></moql>
+                <wintype>SW_BATCH</wintype>
+                <bucketcount>5</bucketcount>
+                <bucketsize>10</bucketsize>
+                <action>setProperty('SIP', '192.168.2.1')</action>
+                <event>
+                    <field name="SIP">'192.168.2.1'</field>
+                </event>
+            </state>
+            <state name="stat22" negative="false" timeout="60">
+                <moql><![CDATA[select evt[0] name, sum(evt[2]) sum from evt evt group by name having sum > 100]]></moql>
+                <wintype>SW_BATCH</wintype>
+                <bucketcount>5</bucketcount>
+                <bucketsize>10</bucketsize>
+                <action>setProperty('SIP', '192.168.2.1')</action>
+                <event>
+                    <field name="SIP">'192.168.2.1'</field>
+                </event>
+            </state>
+            <action>setProperty('SIP', '192.168.2.1')</action>
+            <event>
+                <field name="SIP">'192.168.2.1'</field>
+            </event>
+        </logicstate>
+    </scene>
+    <scene name="test2" maxInstances="20">
+        <state name="stat1" negative="false" timeout="60">
+            <moql><![CDATA[select evt[0] name, sum(evt[2]) sum from evt evt group by name having sum > 100]]></moql>
+            <wintype>SW_BATCH</wintype>
+            <bucketcount>5</bucketcount>
+            <bucketsize>10</bucketsize>
+            <action>setProperty('SIP', '192.168.2.1')</action>
+            <event>
+                <field name="SIP">'192.168.2.1'</field>
+            </event>
+        </state>
+        <logicstate name="stat2" operator="AND" negative="false" timeout="60">
+            <state name="stat21" negative="false" timeout="60">
+                <moql><![CDATA[select evt[0] name, sum(evt[2]) sum from evt evt group by name having sum > 100]]></moql>
+                <wintype>SW_BATCH</wintype>
+                <bucketcount>5</bucketcount>
+                <bucketsize>10</bucketsize>
+                <action>setProperty('SIP', '192.168.2.1')</action>
+                <event>
+                    <field name="SIP">'192.168.2.1'</field>
+                </event>
+            </state>
+            <state name="stat22" negative="false" timeout="60">
+                <moql><![CDATA[select evt[0] name, sum(evt[2]) sum from evt evt group by name having sum > 100]]></moql>
+                <wintype>SW_BATCH</wintype>
+                <bucketcount>5</bucketcount>
+                <bucketsize>10</bucketsize>
+                <action>setProperty('SIP', '192.168.2.1')</action>
+                <event>
+                    <field name="SIP">'192.168.2.1'</field>
+                </event>
+            </state>
+            <action>setProperty('SIP', '192.168.2.1')</action>
+            <event>
+                <field name="SIP">'192.168.2.1'</field>
+            </event>
+        </logicstate>
+    </scene>
+</scenes>

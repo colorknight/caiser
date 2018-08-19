@@ -1,0 +1,16 @@
+<scenes>
+    <scene name="端口扫描" maxInstances="1">
+        <state name="stat0" negative="false" timeout="0">
+            <moql>
+                <![CDATA[select d.SRC_ADDRESS SRC_ADDRESS, d.DEST_PORT DEST_PORT, count(d.DEST_ADDRESS, true) cnt from datas d group by d.SRC_ADDRESS, d.DEST_PORT having cnt > 100]]></moql>
+            <wintype>SW_BATCH_TIME</wintype>
+            <bucketcount>10</bucketcount>
+            <bucketsize>100</bucketsize>
+            <bucketduration>5</bucketduration>
+            <event>
+                <field name="SRC_ADDRESS">rs[0].SRC_ADDRESS</field>
+                <field name="DEST_PORT">rs[0].DEST_PORT</field>
+            </event>
+        </state>
+    </scene>
+</scenes>
