@@ -1,6 +1,6 @@
 package org.datayoo.cepper.sw;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import org.datayoo.cepper.metadata.CepperMetadata;
 import org.datayoo.moql.Selector;
 

@@ -1,6 +1,6 @@
 package org.datayoo.correlator.utils;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 public class OutTimer {
 

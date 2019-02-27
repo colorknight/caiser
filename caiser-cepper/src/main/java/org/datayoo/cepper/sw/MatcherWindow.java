@@ -1,12 +1,12 @@
 package org.datayoo.cepper.sw;
 
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import org.datayoo.cepper.metadata.CepperMetadata;
 import org.datayoo.moql.*;
 import org.datayoo.moql.engine.MoqlEngine;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by tangtadin on 17/1/25.
@@ -41,7 +41,7 @@ public class MatcherWindow extends AbstractWindow {
   @Override public synchronized void push(Object entity) {
     entityMap.putEntity(eventStreamName, entity);
     Object value = operand.operate(entityMap);
-    if (!ObjectUtils.equals(curValue, value)) {
+    if (!Objects.deepEquals(curValue, value)) {
       if (curBucket.size() != 0) {
         operate();
         updateBuckets();

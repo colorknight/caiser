@@ -17,7 +17,7 @@
  */
 package org.datayoo.correlator.metadata.xml;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import org.datayoo.correlator.metadata.SceneMetadata;
 import org.datayoo.moql.util.StringFormater;
 import org.datayoo.moql.xml.AbstractElementFormater;

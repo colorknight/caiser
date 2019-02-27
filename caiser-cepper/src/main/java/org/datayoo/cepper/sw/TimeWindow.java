@@ -1,6 +1,6 @@
 package org.datayoo.cepper.sw;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import org.datayoo.cepper.metadata.CepperMetadata;
 import org.datayoo.moql.Selector;
 
@@ -15,15 +15,17 @@ public class TimeWindow extends AbstractWindow {
 
   protected long bucketMills = 0;
 
-  public TimeWindow(String eventStreamName, CepperMetadata metadata, Selector selector) {
+  public TimeWindow(String eventStreamName, CepperMetadata metadata,
+      Selector selector) {
     super(eventStreamName, metadata, selector);
-    Validate.isTrue(metadata.getBucketDuration() > 0, "bucket duration less than 1!");
+    Validate.isTrue(metadata.getBucketDuration() > 0,
+        "bucket duration less than 1!");
     bucketMills = metadata.getBucketDuration() * 1000;
     curBucketMills = System.currentTimeMillis();
   }
 
   @Override public synchronized void push(List dataSet) {
-    for(Object entity : dataSet) {
+    for (Object entity : dataSet) {
       push(entity);
     }
   }
